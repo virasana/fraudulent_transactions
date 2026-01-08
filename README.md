@@ -34,7 +34,7 @@ Arguably, the iterrows solution is better in this case, as for very large datase
 
 This approach (not included in this repo) does not use pandas.  Rather, the idea is to load both CSVs using the standard csv reader, where accounts.csv would be transformed into a dictionary for quick lookups by key: AccountID. 
 
-This is the simplest approach, avoiding any requirement for the developer to understand pandas. 
+This is the simplest approach, albeit with slightly more verbose code, avoiding any requirement for the developer to understand pandas. 
 
 However, this approach is also the slowest, as it does not take advantage of the optimisations that pandas provides.
 
@@ -42,6 +42,7 @@ However, this approach is also the slowest, as it does not take advantage of the
 
 * merge: theoretically more performant, but verbose and reasonably complex.
 * iterrows: elegant, concise!  performant!  gets my vote!
+* no pandas, with dictionary: simple but slow and verbose.
 
 
 
