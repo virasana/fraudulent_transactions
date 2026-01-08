@@ -32,8 +32,12 @@ Arguably, the iterrows solution is better in this case, as for very large datase
 
 ## In Sum
 
-* iterrows: concise!
-* merge: theoretically preferred
+* merge: theoretically more performant, but verbose and reasonably complex.
+* iterrows: elegant, concise!  performant!  gets my vote!
+
+
+
+
 
 
 
