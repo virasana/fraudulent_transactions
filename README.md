@@ -30,6 +30,14 @@ However, the merge approach is considered marginally better as it uses vectorise
 
 Arguably, the iterrows solution is better in this case, as for very large datasets we might look to other means of querying the data (such as a dedicated database service).
 
+## Alternative approach - dictionary with simple csv iteration
+
+This approach (not included in this repo) does not use pandas.  Rather, the idea is to load both CSVs using the standard csv reader, where accounts.csv would be transformed into a dictionary for quick lookups by key: AccountID. 
+
+This is the simplest approach, avoiding any requirement for the developer to understand pandas. 
+
+However, this approach is also the slowest, as it does not take advantage of the optimisations that pandas provides.
+
 ## In Sum
 
 * merge: theoretically more performant, but verbose and reasonably complex.
