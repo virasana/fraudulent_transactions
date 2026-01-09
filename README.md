@@ -32,20 +32,6 @@ This approach utilises a pattern commonly used in SQL statements (functionally e
 SELECT * FROM transactions where transactions.Source IN (SELECT AccountID from accounts WHERE AccountStatus == 'FRAUDULENT') OR transactions.Destination IN (SELECT AccountID from accounts WHERE AccountStatus == 'FRAUDULENT')
 ```
 
-Here is the code: 
-
-```python
-# One-liner: select only transactions where BOTH Source and Destination are fraudulent
-fraud_transactions = transactions_df[
-    transactions_df['Source'].isin(accounts_df.loc[accounts_df['Review Status'] == 'FRAUDULENT', 'Account ID']) 
-    |
-    transactions_df['Destination'].isin(accounts_df.loc[accounts_df['Review Status'] == 'FRAUDULENT', 'Account ID'])
-]
-
-```
-
-We use .loc with field name to filter the appropriate rows, along with the OR operator i.e. '|'.
-
 ## Alternative approach - dictionary with simple csv iteration
 
 This approach (not included in this repo) does not use pandas.  Rather, the idea is to load both CSVs using the standard csv reader, where accounts.csv would be transformed into a dictionary for quick lookups by key: AccountID. 
