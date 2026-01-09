@@ -26,7 +26,7 @@ With the index in place, we can then use df.iterrows() and .loc[index, field_nam
 
 File: [fraud-pandas-one-liner.py](./fraud-pandas-one-liner.py)
 
-This approach utilises a pattern commonly used in SQL statements (functionally equivalent to an inner join):
+This approach utilises a pattern commonly used in SQL statements (functionally equivalent to an inner join) and is (in my view) the most elegant:
 
 ```sql
 SELECT * FROM transactions where transactions.Source IN (SELECT AccountID from accounts WHERE AccountStatus == 'FRAUDULENT') OR transactions.Destination IN (SELECT AccountID from accounts WHERE AccountStatus == 'FRAUDULENT')
