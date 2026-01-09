@@ -43,7 +43,7 @@ However, this approach is also the slowest, as it does not take advantage of the
 
 ## Comparison
 
-The [iterrows](./fraud-pandas-iterrows.py] solution is simple, readable and concise, but **slowest**.
+The [iterrows](./fraud-pandas-iterrows.py) solution is simple, readable and concise, but **slowest**.
 
 The [merge](./fraud-pandas-merge.py) approach uses vectorised operations under the hood and may perform better on very large datasets but is also **verbose** by comparison.
 
