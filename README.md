@@ -50,7 +50,7 @@ The [merge](./fraud-pandas-merge.py) approach uses vectorised operations under t
 The [one-liner](./fraud-pandas-one-liner.py) is most concise, readable and performant and does this job most elegantly of all.  However, it is not as **flexible** (maintainable) - for example, we will find it difficult to output which account (Source, Destination) is fraudulent. 
 
 
-My vote foes to the **one-liner** as it does the current task elegantly and performs best.
+My vote goes to the **one-liner** as it does the current task elegantly and performs best.
 
 
 
