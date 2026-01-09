@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repo demonstrates a few different approaches to producing a list of transactions that do NOT reference fraudulent accounts in accounts.csv.
+This repo demonstrates a few different approaches to producing a list of transactions that reference fraudulent accounts in accounts.csv.  These variously produce either fraudulent or non-fraudulent transactions - I will standardise the code in due course!
 
 These solutions were both produced in tandem with ChatGPT, incorporating my oversight and direction.  The key insight I provided was to implement an index to facilitate fast lookups.
 
@@ -23,6 +23,9 @@ However, the index is set to  Account ID on accounts_df.
 With the index in place, we can then use df.iterrows() and .loc[index, field_name] to iterate over transactions with minimal performance overhead.  
 
 ## One-liner approach
+
+File: [fraud-pandas-one-liner.py](./fraud-pandas-one-liner.py)
+
 This approach utilises a pattern commonly used in SQL statements (functionally equivalent to a left join):
 
 ```sql
