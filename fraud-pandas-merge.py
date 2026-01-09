@@ -18,8 +18,9 @@ merged_df = merged_df.merge(
 ).rename(columns={'Review Status': 'Destination Status'}).drop(columns=['Account ID'])
 
 non_fraud_df = merged_df[
-    (merged_df['Source Status'] != 'FRAUDULENT') &
-    (merged_df['Destination Status'] != 'FRAUDULENT')
+    (merged_df['Source Status'] == 'FRAUDULENT') 
+    |
+    (merged_df['Destination Status'] == 'FRAUDULENT')
 ]
 
 print(non_fraud_df)
