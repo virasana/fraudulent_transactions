@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repo demonstrates two different approaches to producing a list of transactions that do NOT reference fraudulent accounts in accounts.csv.
+This repo demonstrates a few different approaches to producing a list of transactions that do NOT reference fraudulent accounts in accounts.csv.
 
 These solutions were both produced in tandem with ChatGPT, incorporating my oversight and direction.  The key insight I provided was to implement an index to facilitate fast lookups.
 
