@@ -43,11 +43,11 @@ However, this approach is also the slowest, as it does not take advantage of the
 
 ## Comparison
 
-The iterrows solution is simple, readable and concise, but **slowest**.
+The (iterrows)[./fraud-pandas-iterrows.py] solution is simple, readable and concise, but **slowest**.
 
-The merge approach uses vectorised operations under the hood and may perform better on very large datasets but is also **verbose** by comparison.
+The [merge](./fraud-pandas-merge.py) approach uses vectorised operations under the hood and may perform better on very large datasets but is also **verbose** by comparison.
 
-The one-liner is most concise, readable and performant and does this job most elegantly of all.  However, it is not as **flexible** (maintainable) - for example, we will find it difficult to output which account (Source, Destination) is fraudulent. 
+The [one-liner](./fraud-pandas-one-liner.py) is most concise, readable and performant and does this job most elegantly of all.  However, it is not as **flexible** (maintainable) - for example, we will find it difficult to output which account (Source, Destination) is fraudulent. 
 
 
 My vote foes to the **one-liner** as it does the current task elegantly and performs best.
