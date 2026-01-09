@@ -22,14 +22,6 @@ Similar to the above, two pandas DataFrames are populated from the csv files.
 However, the index is set to  Account ID on accounts_df.  
 With the index in place, we can then use df.iterrows() and .loc[index, field_name] to iterate over transactions with minimal performance overhead.  
 
-## Comparison
-
-The iterrows solution is more readable and concise. 
-
-However, the merge approach is considered marginally better as it uses vectorised operations under the hood and may perform better on very large datasets. 
-
-Arguably, the iterrows solution is better in this case, as for very large datasets we might look to other means of querying the data (such as a dedicated database service).
-
 ## One-liner approach
 This approach utilises a pattern commonly used in SQL statements (functionally equivalent to a left join):
 
@@ -59,11 +51,18 @@ This is the simplest approach, albeit with slightly more verbose code, avoiding 
 
 However, this approach is also the slowest, as it does not take advantage of the optimisations that pandas provides.
 
-## In Sum
 
-* merge: theoretically more performant, but verbose and reasonably complex.
-* iterrows: elegant, concise!  performant!  gets my vote!
-* no pandas, with dictionary: simple but slow and verbose.
+## Comparison
+
+The iterrows solution is simple, readable and concise, but **slowest**.
+
+The merge approach uses vectorised operations under the hood and may perform better on very large datasets but is also **verbose** by comparison.
+
+The one-liner is most concise, readable and performant and does this job most elegantly of all.  However, it is not as **flexible** (maintainable) - for example, we will find it difficult to output which account (Source, Destination) is fraudulent. 
+
+
+My vote foes to the **one-liner** as it does the current task elegantly and performs best.
+
 
 
 
