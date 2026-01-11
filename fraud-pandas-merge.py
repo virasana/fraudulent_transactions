@@ -1,7 +1,12 @@
 import pandas as pd
 
+# This approach uses Pandas data frames, with merging and is 
+# hightly performant. 
+# However, this approach loads the main dataset (transactions.csv) into memory
+# and so will exhibit diminishing returns with larger datasets.
+
 accounts_df = pd.read_csv("accounts.csv")
-transactions_df = pd.read_csv("transactions.csv")
+transactions_df = pd.read_csv("transactions.csv") 
 
 merged_df = transactions_df.merge(
     accounts_df[['Account ID', 'Review Status']],

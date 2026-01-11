@@ -2,9 +2,9 @@
 
 ## Overview
 
-This repo demonstrates a few different approaches to producing a list of transactions that reference fraudulent accounts in accounts.csv.  These variously produce either fraudulent or non-fraudulent transactions - I will standardise the code in due course!
+This repo demonstrates a few different approaches to producing a list of transactions.  
 
-These solutions were both produced in tandem with ChatGPT, incorporating my oversight and direction.  The key insight I provided was to implement an index to facilitate fast lookups.
+These solutions were both produced with the help of ChatGPT.  The key insight I provided was to implement an index to facilitate fast lookups.
 
 ## Approach 1 - Merge Rows with Pandas
 
