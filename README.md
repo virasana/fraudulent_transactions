@@ -2,9 +2,9 @@
 
 ## Overview
 
-This repo demonstrates a few different approaches to producing a list of transactions.  
+This repo demonstrates a few different approaches to producing a list of transactions, using two csv files (accounts.csv and transactions.csv).  The data is relational, requiring a lookup from transactions.csv into accounts.csv to determine whether the account is fraudulent. 
 
-These solutions were both produced with the help of ChatGPT.  The key insight I provided was to implement an index to facilitate fast lookups.
+These solutions were both produced with the help of ChatGPT but the designs and refinements are ultimately my own.
 
 ## Approach 1 - Merge Rows with Pandas
 
@@ -51,11 +51,3 @@ The [one-liner](./fraud-pandas-one-liner.py) is most concise, readable and perfo
 
 
 My vote goes to the **one-liner** as it does the current task elegantly and performs best.
-
-
-
-
-
-
-
-
