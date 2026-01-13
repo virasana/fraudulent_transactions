@@ -39,7 +39,7 @@ This approach does not use pandas.  Rather, the idea is to load the accounts int
 This approach is memory efficient and can handle a transactions file of infinite size.  
 By contrast, the accounts.csv file must be small enough to be able to fit into the available memory.
 
-All of the other approach are unable to load super-large transactions files, as they rely upon loading the entire file into memory!  This approach is therefore recommended if the transactions file is inordinatly large.
+All of the other approaches are unable to load super-large transactions files, as they rely upon loading the entire file into memory!  This approach is therefore recommended if the transactions file is inordinatly large.
 
 ## Comparison
 
