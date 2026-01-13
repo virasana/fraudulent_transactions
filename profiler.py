@@ -5,6 +5,13 @@ import sys
 import gc
 from tabulate import tabulate  # pip install tabulate
 
+# -------------- DISCLAIMER ----------------- # 
+# This code was generated entirely by ChatGPT # 
+# But the ideas - such as memory baseline     #
+# garbage collection and cooldown periods     # 
+# are my own.                                 #
+# ------------------------------------------- # 
+
 # -----------------------------
 # Configuration
 # -----------------------------
