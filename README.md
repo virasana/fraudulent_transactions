@@ -52,3 +52,30 @@ The [one-liner](./fraud-pandas-one-liner.py) is most concise, readable and perfo
 The [simple solution](./fraud-simple.py) is able to handle an indefinitely large transaction file, and beats all other solutions in this regard.  All other solutions load the transactions into memory and are therefore memory-dependent, related to transactions.  Note that this approach is still constrained by the size of accounts.csv - this needs to be small enough to fit the available memory, as it is cached at the start.
 
 My vote goes to the [one-liner](./fraud-pandas-one-liner.py) as it does the current task elegantly and performs best.  If using huge files, however, the [simple solution](./fraud-simple.py) is best.
+
+## Profiler
+
+As proof of the above observations, please see the output below:
+
+
+| Script                    | Peak Memory (MB) | Elapsed Time (s) |
+|---------------------------|----------------|----------------|
+| fraud-pandas-iterrows.py  | 6480.7         | 58.58          |
+| fraud-pandas-merge.py     | 6305.59        | 57.24          |
+| fraud-pandas-one-liner.py | 6343.95        | 45.78          |
+| **fraud-simple.py**           | **372.48**         | **567.18**         |
+
+
+Voila!
+
+As expected, [fraud-simple.py](./fraud-simple.py) consumes the least memory (by far) but is also slowest!
+
+[fraud-pandas-one-liner.py](./fraud-pandas-one-liner.py) is marginally quicker than the other Pandas approaches but with similar memory consumption.
+
+
+
+## Profiler Setup 
+
+* Generate some sample data (you will need 2GB of disk space) - [generate-large-data.py](./generate-large-data.py) 
+
+* Run the profiler yourself - [profiler.py](./profiler.py)
