@@ -2,6 +2,10 @@ import csv
 import random
 import os
 
+# -------------- DISCLAIMER ----------------- # 
+# This code was generated entirely by ChatGPT # 
+# ------------------------------------------- # 
+
 def generate_accounts(file_name="accounts_1GB.csv", target_size_gb=1, num_accounts=200000):
     """Generate accounts CSV (~1GB) with 10% FRAUDULENT"""
     target_bytes = target_size_gb * 1024**3
