@@ -32,14 +32,14 @@ This approach utilises a pattern commonly used in SQL statements (functionally e
 SELECT * FROM transactions where transactions.Source IN (SELECT AccountID from accounts WHERE AccountStatus == 'FRAUDULENT') OR transactions.Destination IN (SELECT AccountID from accounts WHERE AccountStatus == 'FRAUDULENT')
 ```
 
-## Alternative approach - dictionary with simple csv iteration
+## Fraud Simple - dictionary cache with csv iteration
 
-This approach (not included in this repo) does not use pandas.  Rather, the idea is to load both CSVs using the standard csv reader, where accounts.csv would be transformed into a dictionary for quick lookups by key: AccountID. 
+This approach does not use pandas.  Rather, the idea is to load the accounts into memory using the standard csv DictReader.
 
-This is the simplest approach, albeit with slightly more verbose code, avoiding any requirement for the developer to understand pandas. 
+This approach is memory efficient and can handle a transactions file of infinite size.  
+By contrast, the accounts.csv file must be small enough to be able to fit into the available memory.
 
-However, this approach is also the slowest, as it does not take advantage of the optimisations that pandas provides.
-
+All of the other approach are unable to load super-large transactions files, as they rely upon loading the entire file into memory!  This approach is therefore recommended if the transactions file is inordinatly large.
 
 ## Comparison
 
@@ -49,5 +49,6 @@ The [merge](./fraud-pandas-merge.py) approach uses vectorised operations under t
 
 The [one-liner](./fraud-pandas-one-liner.py) is most concise, readable and performant and does this job most elegantly of all.  However, it is not as **flexible** (maintainable) - for example, we will find it difficult to output which account (Source, Destination) is fraudulent. 
 
+The [simple solution](./fraud-simple) is able to handle an indefinitely large transaction file, and beats all other solutions in this regard.  All other solutions load the transactions into memory and are therefore memory-dependent, related to transactions.  Note that this approach is still constrained by the size of accounts.csv - this needs to be small enough to fit the available memory, as it is cached at the start.
 
-My vote goes to the **one-liner** as it does the current task elegantly and performs best.
+My vote goes to the **one-liner** as it does the current task elegantly and performs best.  (I assume that we will be using a relatively small set of .csv files, and not processing Petabytes!)
