@@ -49,9 +49,11 @@ The [merge](./fraud-pandas-merge.py) approach uses vectorised operations under t
 
 The [one-liner](./fraud-pandas-one-liner.py) is most concise, readable and performant and does this job most elegantly of all.  However, it is not as **flexible** (maintainable) - for example, we will find it difficult to output which account (Source, Destination) is fraudulent. 
 
-The [simple solution](./fraud-simple.py) is able to handle an indefinitely large transaction file, and beats all other solutions in this regard.  All other solutions load the transactions into memory and are therefore memory-dependent, related to transactions.  Note that this approach is still constrained by the size of accounts.csv - this needs to be small enough to fit the available memory, as it is cached at the start.
+The [simple solution](./fraud-simple.py) is able to handle an indefinitely large transaction file (**scalable**), and beats all other solutions in this regard. However, because it reads the transactions line by line, it is **slow**. All other solutions load the transactions into memory and are therefore memory-dependent, related to transactions.  Note that this approach is still constrained by the size of accounts.csv - this needs to be small enough to fit the available memory, as it is cached at the start.
+
 
 My vote goes to the [one-liner](./fraud-pandas-one-liner.py) as it does the current task elegantly and performs best.  If using huge files, however, the [simple solution](./fraud-simple.py) is best.
+
 
 ## Profiler
 
