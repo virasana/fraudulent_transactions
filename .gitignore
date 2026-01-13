@@ -1,1 +1,5 @@
-output.csv
+fraud-simple.output.csv
+transactions.csv
+accounts.csv
+accounts.old.csv
+transactions.old.csv
