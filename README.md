@@ -22,7 +22,7 @@ Similar to the above, two pandas DataFrames are populated from the csv files.
 However, the index is set to  Account ID on accounts_df.  
 With the index in place, we can then use df.iterrows() and .loc[index, field_name] to iterate over transactions with minimal performance overhead.  
 
-## One-liner approach
+## Approach 3 - One-liner approach
 
 File: [fraud-pandas-one-liner.py](./fraud-pandas-one-liner.py)
 
@@ -32,7 +32,7 @@ This approach utilises a pattern commonly used in SQL statements (functionally e
 SELECT * FROM transactions where transactions.Source IN (SELECT AccountID from accounts WHERE AccountStatus == 'FRAUDULENT') OR transactions.Destination IN (SELECT AccountID from accounts WHERE AccountStatus == 'FRAUDULENT')
 ```
 
-## Fraud Simple - dictionary cache with csv iteration
+## Approach 4 - Fraud Simple - dictionary cache with csv iteration
 
 This approach does not use pandas.  Rather, the idea is to load the accounts into memory using the standard csv DictReader.
 
