@@ -31,4 +31,4 @@ non_fraud_df = merged_df[
 print(non_fraud_df)
 print(f"Number of non-fraudulent transactions: {len(non_fraud_df)}")
 
-non_fraud_df.to_csv('output.csv', index=False)
+# non_fraud_df.to_csv('output.csv', index=False)

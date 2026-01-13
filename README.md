@@ -81,3 +81,23 @@ As expected, [fraud-simple.py](./fraud-simple.py) consumes the least memory (by 
 * Generate some sample data (you will need 2GB of disk space) - [generate-large-data.py](./generate-large-data.py) 
 
 * Run the profiler yourself - [profiler.py](./profiler.py)
+
+## Run with Docker
+
+Run the file [run-docker.sh](./run-docker.sh)
+
+This will build and run a shell inside a Docker container.  You can then run the files as follows: 
+
+```bash
+python fraud-pandas-iterrows.py
+python fraud-pandas-merge.py
+python fraud-pandas-one-liner.py
+python fraud-simple.py
+```
+
+to run the profiler: 
+
+```bash
+python generate-large-data.py # generates two 1GB files (replaces accounts.csv and transactions.csv)
+python profiler.py
+```
